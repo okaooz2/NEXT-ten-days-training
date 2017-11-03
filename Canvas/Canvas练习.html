@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Canvas练习</title>
+    <style>
+        canvas#my-canvas {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="my-canvas" width="500px" height="500px"></canvas>
+
+
+    <script>
+        var my_canvas = document.querySelector("canvas#my-canvas");
+        var context = my_canvas.getContext("2d");       //获取画布2d上下文
+
+        //画矩形
+        context.fillRect(20, 20 , 90, 200);
+        context.strokeRect(200, 20, 150, 150);
+
+        //插入图片
+        var image = new Image();
+        image.src = "image/表情.png";
+        image.addEventListener("load", function(event) {
+            context.drawImage(image, 300, 300);
+            context.drawImage(image, 200, 400, 50, 30);
+        })
+    </script>
+</body>
+</html>
