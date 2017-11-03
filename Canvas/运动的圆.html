@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>运动的圆</title>
+</head>
+<body>
+    <canvas class="my-canvas"></canvas>
+
+
+
+    <script>
+        function Circle(position_x, position_y, radius) {
+            this.position_x = position_x;
+            this.position_y = position_y;
+            this.radius = radius;
+            this.directionX_flag = false;     //true为向右， false为向左
+            this.directionY_flag = false;     //true为向下， false为向上
+        }
+        Circle.prototype = {
+            move : function(wall_left, wall_right, wall_top, wall_bottom) {
+                wall_left += this.radius;
+                wall_right -= this.radius;
+                wall_top += this.radius;
+                wall_bottom -= this.radius;
+                if(this.position_x <= wall_left) {
+                    this.directionX_flag = true;
+                }
+                else if(this.position_x >= wall_right) {
+                    this.directionX_flag = false;
+                }
+                if(this.position_y <= wall_top) {
+                    this.directionY_flag = true;
+                }
+                else if(this.position_y >= wall_bottom) {
+                    this.directionY_flag = false;
+                }
+
+                if(this.directionX_flag) {
+                    this.position_x += 5;
+                }
+                else {
+                    this.position_x -= 5;
+                }
+                if(this.directionY_flag) {
+                    this.position_y += 5;
+                }
+                else {
+                    this.position_y -= 5;
+                }
+            }
+        }
+
+
+        var canvas = document.querySelector("canvas");
+        var context = canvas.getContext("2d");
+        canvas.width = 700, canvas.height = 500, canvas.style.backgroundColor = "#ddd";
+        
+        var circle = new Circle(150, 100, 30);
+
+        animate();
+        function animate() {
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            context.beginPath();
+            circle.move(0, canvas.width, 0, canvas.height);
+            context.arc(circle.position_x, circle.position_y, circle.radius, 0, Math.PI*2, false);
+            context.fill();
+            requestAnimationFrame(animate);
+        }
+    </script>
+</body>
+</html>
