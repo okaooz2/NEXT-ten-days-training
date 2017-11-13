@@ -9,6 +9,7 @@ body {
     height: 100vh;
     background-image: url("../image/背景2.jpg");
     background-size: cover;
+    overflow: hidden;
 }
 
 /* 欢迎界面设置 */
@@ -71,7 +72,7 @@ div.panel button {
 
 /* 游戏设置界面 */
 div#setting {
-    display: block;
+    display: none;
 }
 div#setting ul {
     list-style: none
