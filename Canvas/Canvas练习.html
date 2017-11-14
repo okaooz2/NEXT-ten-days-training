@@ -19,18 +19,24 @@
         var my_canvas = document.querySelector("canvas#my-canvas");
         var context = my_canvas.getContext("2d");       //获取画布2d上下文
 
-        //画矩形
-        context.fillRect(20, 20 , 90, 200);
-        context.strokeRect(200, 20, 150, 150);
-
-        //插入图片
         var image = new Image();
-        image.src = "image/表情.png";
-        image.addEventListener("load", function(event) {
-            context.drawImage(image, 300, 300);
-            context.drawImage(image, 200, 400, 50, 30);
-            context.translate(30, 30);
-        })
+        image.src = "./image/表情.png";
+
+        image.onload = function() {
+            var a_x = 100;
+            var a_y = 100;
+            function _aaa() {
+                context.drawImage(image, ++a_x, ++a_y);
+            }
+            window.setInterval(_aaa, 100);
+
+            var b_x = 300;
+            var b_y = 300;
+            function _bbb() {
+                context.drawImage(image, ++b_x, ++b_y);
+            }
+            window.setInterval(_bbb, 100);
+        }
     </script>
 </body>
 </html>

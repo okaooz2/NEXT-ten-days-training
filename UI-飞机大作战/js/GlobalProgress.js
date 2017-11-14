@@ -61,6 +61,7 @@ GlobalProgress.prototype = {
         //根据设置页面的取值来修改默认设置
         var canvas = document.createElement("canvas");
         var context = canvas.getContext("2d");
+        parameter.canvas = canvas;
         parameter.context = context;
         //画布大小与屏幕一样
         canvas.width = document.documentElement.clientWidth;
@@ -73,7 +74,18 @@ GlobalProgress.prototype = {
      * 控制游戏流程的方法
      * **/
     gamingProgress: function() {
-        var fly = new Fly(parameter.enemy_small_speed, 0, 0, parameter.enemyImg_small_src, parameter.enemy_small_width, parameter.enemy_small_height);
-        fly.display();
+        // var plane = new Plane(parameter.enemy_small_speed, 0, 0, parameter.enemy_small_blood);
+        // plane.iniProtoPlane(parameter.enemyImg_small, parameter.enemy_small_width, parameter.enemy_small_height, parameter.enemy_small_bombingImg, parameter.enemy_small_bombingImg_sideLen);
+        // plane.drawFlying();
+        // plane.judegCondition();
+
+        // var plane = new Plane(parameter.enemy_big_speed, 100, 0, parameter.enemy_big_blood);
+        // plane.iniProtoPlane(parameter.enemyImg_big, parameter.enemy_big_width, parameter.enemy_big_height, parameter.enemy_big_bombingImg, parameter.enemy_big_bombingImg_sideLen);
+        // plane.drawFlying();
+        // plane.judegCondition();
+
+        var enemeies = new EnemyPlane();
+        enemeies.makeEnemy();
+        enemeies.makeEnemyFly();
     }
 }
