@@ -19,13 +19,15 @@ EnemyPlane.prototype = {
             that.enemy_planes[length] = new Plane()
             if(Math.random() > 0.2) {
                 //添加小飞机
-                var x = Math.floor(Math.random()*(parameter.canvas.width - parameter.enemy_small_width));
-                that.enemy_planes[length] = new Plane(parameter.enemy_small_speed, x, 0, parameter.enemy_small_blood);
+                that.enemy_planes[length] = new Plane(parameter.enemy_small_speed, 
+                Math.floor(Math.random()*(parameter.canvas.width - parameter.enemy_small_width)), 
+                -parameter.enemy_small_height, parameter.enemy_small_blood);
                 that.enemy_planes[length].iniProtoPlane(parameter.enemyImg_small, parameter.enemy_small_width, parameter.enemy_small_height, parameter.enemy_small_bombingImg, parameter.enemy_small_bombingImg_sideLen);
             }
             else {
-                var x = Math.floor(Math.random()*(parameter.canvas.width - parameter.enemy_big_width));
-                that.enemy_planes[length] = new Plane(parameter.enemy_big_speed, x, 0, parameter.enemy_big_blood);
+                that.enemy_planes[length] = new Plane(parameter.enemy_big_speed, 
+                    Math.floor(Math.random()*(parameter.canvas.width - parameter.enemy_big_width)), 
+                    -parameter.enemy_big_height, parameter.enemy_big_blood);
                 that.enemy_planes[length].iniProtoPlane(parameter.enemyImg_big, parameter.enemy_big_width, parameter.enemy_big_height, parameter.enemy_big_bombingImg, parameter.enemy_big_bombingImg_sideLen);
             }
         }
