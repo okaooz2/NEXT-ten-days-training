@@ -4,7 +4,8 @@
 
 var parameter = {
     //背景图片
-    gamingBackgroundImg_src: "../image/背景3.jpg",
+    gamingBackgroundImg_1_src: "../image/背景2.jpg",
+    gamingBackgroundImg_2_src: "../image/背景3.jpg",
     //主角飞机的参数
     heroImg_src: "../飞机游戏素材/飞机/飞机1.png",
     hero_image: new Image(),
@@ -33,10 +34,10 @@ var parameter = {
     enemy_big_bombingImg: new Image(),
     enemy_big_bombingImg_sideLen: 50,
     enemy_big_speed: 2,
-    enemy_big_blood: 7,
+    enemy_big_blood: 6,
     enemy_big_value: 500,
     //敌人飞机数量
-    enemy_maxNum: 1,
+    enemy_maxNum: 5,
     //子弹的参数
     bulletImg: new Image(),
     bulletImg_src: "../飞机游戏素材//子弹/子弹3.png",

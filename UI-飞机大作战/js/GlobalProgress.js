@@ -31,37 +31,39 @@ GlobalProgress.prototype = {
         //进入页面先让欢迎页面显示
         welcom_menu.style.display = "block";
         //绑定欢迎页面开始按钮
-        welcome_btn_start.addEventListener("click", function(event) {
+        welcome_btn_start.onclick = function() {
             welcom_menu.style.display = "none";
             that.initialData();
             that.gamingProgress();
-        }, false);
+            document.body.style.backgroundImage = "url(" + parameter.gamingBackgroundImg_2_src + ")";
+        };
         //绑定欢迎页面设置按钮
-        welcome_btn_setting.addEventListener("click", function(event) {
+        welcome_btn_setting.onclick = function() {
             welcom_menu.style.display = "none";
             setting.style.display = "block";
-        }, false);
+        };
         //绑定欢迎页面说明按钮
-        welcome_btn_direction.addEventListener("click", function(event) {
+        welcome_btn_direction.onclick = function() {
             welcom_menu.style.display = "none";
             direction.style.display = "block";
-        }, false);
+        };
         //绑定设置页面确定按钮
-        setting_btn.addEventListener("click", function(event) {
+        setting_btn.onclick = function() {
             setting.style.display = "none";
             welcom_menu.style.display = "block";
-        }, false);
+        };
         //绑定说明页面确定按钮
-        direction_btn.addEventListener("click", function(event) {
+        direction_btn.onclick = function() {
             direction.style.display = "none";
             welcom_menu.style.display = "block";
-        }, false);
+        };
         //绑定gameover界面按钮
-        gameover_btn.addEventListener("click", function(event) {
+        gameover_btn.onclick = function() {
             parameter.context.clearRect(0, 0, parameter.canvas.width, parameter.canvas.height);
             gameover.style.display = "none";
             welcom_menu.style.display = "block";
-        }, false);
+            document.body.style.backgroundImage = "url(" + parameter.gamingBackgroundImg_1_src + ")";
+        };
     },
     /****
      * 初始化数据的方法
@@ -135,7 +137,6 @@ GlobalProgress.prototype = {
                 that.gameover(enemeies, hero);
             }
         }
-        this.global_interval.push(window.setInterval(_gameover, 100));
+        this.global_interval.push(window.setInterval(_gameover, 200));
     }
-    
 }

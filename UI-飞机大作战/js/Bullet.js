@@ -5,7 +5,7 @@
 
 function Bullet(speed, x, y) {
     //继承飞行类的私有属性
-    Fly.call(this, speed, x, y);//////////////////////////
+    Fly.call(this, speed, x, y);
     //新增属性
     // this.condition = "normal";      //normal: 正常状态, disappear: 消失（直接消失）
 }

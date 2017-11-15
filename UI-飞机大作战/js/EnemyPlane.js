@@ -17,7 +17,7 @@ EnemyPlane.prototype = {
         
             var length = that.enemy_planes.length;
             that.enemy_planes[length] = new Plane()
-            if(Math.random() > 0.15) {
+            if(Math.random() > 0.2) {
                 //添加小飞机
                 var x = Math.floor(Math.random()*(parameter.canvas.width - parameter.enemy_small_width));
                 that.enemy_planes[length] = new Plane(parameter.enemy_small_speed, x, 0, parameter.enemy_small_blood);
@@ -29,7 +29,7 @@ EnemyPlane.prototype = {
                 that.enemy_planes[length].iniProtoPlane(parameter.enemyImg_big, parameter.enemy_big_width, parameter.enemy_big_height, parameter.enemy_big_bombingImg, parameter.enemy_big_bombingImg_sideLen);
             }
         }
-        this.enemy_interval.push(window.setInterval(_makeEnemy, 500));
+        this.enemy_interval.push(window.setInterval(_makeEnemy, 100));
    },
    //让所有敌机动态飞行
    makeEnemyFly: function() {
