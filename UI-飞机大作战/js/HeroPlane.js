@@ -5,7 +5,7 @@
 
 function HeroPlane() {
     //继承飞机类的私有属性
-    Plane(0, (parameter.canvas.width - parameter.hero_width)/2, parameter.canvas.hero_width - parameter.hero_height, 10);   //暂且设置血量为10
+    Plane.call(this, 0, (parameter.canvas.width - parameter.hero_width)/2, parameter.canvas.height - parameter.hero_height, 10);   //暂且设置血量为10
 }
 //继承飞机类的共有属性和方法
 inheritPrototype(HeroPlane, Plane);
@@ -27,19 +27,47 @@ HeroPlane.prototype.updataCondition = function() {
 //移动飞机的方法
 HeroPlane.prototype.moveHeroPlane = function() {
     var that = this;
+    var is_touching = false;
+    var x_edge = parameter.canvas.width - this.image_width;
+    var y_edge = parameter.canvas.height - this.image_height;
     //回调函数加上名字便于移除
-    document.body.addEventListener("touchstart"&&"touchmove", function moving(event){
-        // event.preventDefault();
-        //触摸到飞机移动才有效
-        if(Math.abs(event.touches[0].clientX - that.x) < that.width && 
-        Math.abs(event.touches[0].clientY - that.y) < that.hero_image) {
-            return ;
+    parameter.canvas.addEventListener("touchstart", function moving() {
+        var touch_x = event.touches[0].clientX;
+        var touch_y = event.touches[0].clientY;
+        if(touch_x > that.x && touch_y > that.y &&
+        touch_x - that.x < that.image_width && touch_y - that.y < that.image_height) {
+            is_touching = true;
+            }
+    }, false);
+    parameter.canvas.addEventListener("touchend", function moving() {
+        is_touching = false;
+    }, false);
+    //回调函数加上名字便于移除
+    parameter.canvas.addEventListener("touchmove", function moving(event){
+        event.preventDefault();
+        if(is_touching) {
+            var position_x = event.touches[0].clientX - that.image_width/2;
+            var position_y = event.touches[0].clientY - that.image_height/2;
+            if(position_x > x_edge) {
+                that.x =  x_edge;
+            }
+            else if(position_x < 0) {
+                that.x = 0;
+            }
+            else {
+                 that.x = position_x;
+            }
+
+            if(position_y > y_edge) {
+                that.y = y_edge;
+            }
+            else if(position_y < 0) {
+                that.y = 0;
+            }
+            else {
+                that.y = position_y;
+            }
         }
-        that.x = event.touches[0].clientX;
-        that.y = event.touches[0].clientY;
-        // circle.style.left = event.touches[0].clientX + "px";
-        // circle.style.top = event.touches[0].clientY + "px";
-        // circle_position.innerHTML = "position: (" + event.changedTouches[0].clientX + ", " + event.changedTouches[0].clientY + ")";
     }, false);
 }
 
