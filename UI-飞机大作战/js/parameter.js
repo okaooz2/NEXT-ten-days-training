@@ -12,7 +12,7 @@ var parameter = {
     hero_height: 60,
     hero_bombingImg_src: "../飞机游戏素材/爆炸/主角飞机爆炸.png",
     hero_bombingImg: new Image(),
-    hero_bombingImg_sideLen: 60,
+    hero_bombingImg_sideLen: 80,
     //小敌人飞机的参数
     enemyImg_small_src: "../飞机游戏素材/飞机/飞机4.png",
     enemyImg_small: new Image(),
@@ -23,6 +23,7 @@ var parameter = {
     enemy_small_bombingImg_sideLen: 30,
     enemy_small_speed: 3,
     enemy_small_blood: 2,
+    enemy_small_value: 100,
     //大敌人飞机的参数
     enemyImg_big_src: "../飞机游戏素材/飞机/飞机5.png",
     enemyImg_big: new Image(),
@@ -32,16 +33,44 @@ var parameter = {
     enemy_big_bombingImg: new Image(),
     enemy_big_bombingImg_sideLen: 50,
     enemy_big_speed: 2,
-    enemy_big_blood: 6,
+    enemy_big_blood: 7,
+    enemy_big_value: 500,
     //敌人飞机数量
     enemy_maxNum: 6,
+    //子弹的参数
+    bulletImg: new Image(),
+    bulletImg_src: "../飞机游戏素材//子弹/子弹3.png",
+    bulletImg_width: 10,
+    bulletImg_height: 30,
+    bullet_speen: -10,
 
     canvas: null,
     context: null,
+    gameover: false,
+    score: 0,
+
+    initialData: function() {
+        //初始化图片
+        this.hero_image.src = this.heroImg_src;
+        this.enemyImg_small.src = this.enemyImg_small_src;
+        this.enemyImg_big.src = this.enemyImg_big_src;
+        this.hero_bombingImg.src = this.hero_bombingImg_src;
+        this.enemy_small_bombingImg.src = this.enemy_small_bombingImg_src;
+        this.enemy_big_bombingImg.src = this.enemy_big_bombingImg_src;
+        this.bulletImg.src = this.bulletImg_src;
+
+        //根据设置页面的取值来修改默认设置
+        this.canvas =document.createElement("canvas");
+        this.context = this.canvas.getContext("2d");
+        //画布大小与屏幕一样
+        this.canvas.width = document.documentElement.clientWidth;
+        this.canvas.height = document.documentElement.clientHeight;
+
+        document.body.appendChild(this.canvas);
+        //====================================
+    }
 };
-parameter.hero_image.src = parameter.heroImg_src;
-parameter.enemyImg_small.src = parameter.enemyImg_small_src;
-parameter.enemyImg_big.src = parameter.enemyImg_big_src;
-parameter.hero_bombingImg.src = parameter.hero_bombingImg_src;
-parameter.enemy_small_bombingImg.src = parameter.enemy_small_bombingImg_src;
-parameter.enemy_big_bombingImg.src = parameter.enemy_big_bombingImg_src;
+
+
+//这里直接调用函数初始化数据
+parameter.initialData();

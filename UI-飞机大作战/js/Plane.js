@@ -22,7 +22,7 @@ Plane.prototype.iniProtoPlane = function(image, image_width, image_height, bombi
 }
 //判断飞机当前状态的方法
 Plane.prototype.judegCondition = function() {
-    if(this.blood <= 0 || this.y > 400) {
+    if(this.blood <= 0) {
         this.condition = "bombing";
         this.updataCondition();
     }

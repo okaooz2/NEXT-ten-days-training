@@ -89,3 +89,15 @@ div#setting select {
     height: 1.5em;
     font-size: 0.9em;
 }
+
+/* gameover界面 */
+div#gameover h4 {
+    margin-bottom: 1em;
+    font-weight: bold;
+    color: blue;
+}
+div#gameover span {
+    padding: 0 0.2em;
+    background-color: black;
+    color: white;
+}
