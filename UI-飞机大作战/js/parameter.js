@@ -36,7 +36,7 @@ var parameter = {
     enemy_big_blood: 7,
     enemy_big_value: 500,
     //敌人飞机数量
-    enemy_maxNum: 6,
+    enemy_maxNum: 1,
     //子弹的参数
     bulletImg: new Image(),
     bulletImg_src: "../飞机游戏素材//子弹/子弹3.png",

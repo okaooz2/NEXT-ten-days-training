@@ -45,11 +45,13 @@ EnemyPlane.prototype = {
             for(var i=0, len=that.enemy_planes.length; i<len; len=that.enemy_planes.length) {
                 if(!that.enemy_planes[i].is_live) {
                     //加分
-                    if(that.enemy_planes[i].image === parameter.enemyImg_small) {   //小飞机
-                        parameter.score += parameter.enemy_small_value;
-                    }
-                    else {
-                        parameter.score += parameter.enemy_big_value;
+                    if(that.enemy_planes[i].blood <= 0) {
+                        if(that.enemy_planes[i].image === parameter.enemyImg_small) {   //小飞机
+                            parameter.score += parameter.enemy_small_value;
+                        }
+                        else {
+                            parameter.score += parameter.enemy_big_value;
+                        }
                     }
                     //删除一项
                     that.enemy_planes.splice(i, 1);
