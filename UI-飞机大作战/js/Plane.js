@@ -22,20 +22,14 @@ Plane.prototype.iniProtoPlane = function(image, image_width, image_height, bombi
 }
 //判断飞机当前状态的方法
 Plane.prototype.judegCondition = function() {
-    // var that = this;
-    // function _judegCondition() {
-        if(this.blood <= 0 || this.y>300) {
-            this.condition = "bombing";
-            this.updataCondition();
-            // clearInterval(interval);
-        }
-        else if(this.y > parameter.canvas.height) {
-            this.condition = "disappear";
-            this.updataCondition();
-            // clearInterval(interval);
-        }
-    // }
-    // var interval = window.setInterval(_judegCondition, 10);
+    if(this.blood <= 0 || this.y > 400) {
+        this.condition = "bombing";
+        this.updataCondition();
+    }
+    else if(this.y > parameter.canvas.height) {
+        this.condition = "disappear";
+        this.updataCondition();
+    }
 }
 //更新自身状态的方法
 Plane.prototype.updataCondition = function(){
@@ -50,13 +44,6 @@ Plane.prototype.updataCondition = function(){
             var bombing_x = this.x + 0.5*(this.image_width - this.bombingImg_sideLen);
             var bombing_y = this.y + 0.5*(this.image_height - this.bombingImg_sideLen);
             parameter.context.drawImage(this.bombingImg, bombing_x, bombing_y, this.bombingImg_sideLen, this.bombingImg_sideLen);
-            var that = this;
-            // var interval = window.setTimeout(function() {
-            //     parameter.context.clearRect(bombing_x, bombing_y, that.bombingImg_sideLen, that.bombingImg_sideLen);
-            // }, 1);
-            // window.setTimeout(function() {
-            //     clearInterval(interval);
-            // }, 30);
             break;
         case "disappear": 
             //结束飞行状态

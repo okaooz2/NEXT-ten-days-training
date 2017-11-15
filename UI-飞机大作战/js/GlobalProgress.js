@@ -71,21 +71,30 @@ GlobalProgress.prototype = {
         //====================================
     },
     /****
+     * 让所有飞行物飞行的方法
+     * **/
+    letFly: function(enemeies, hero) {
+        //先擦除画布
+        function _letFly()　{
+            parameter.context.clearRect(0, 0, parameter.canvas.width, parameter.canvas.height);
+            enemeies.makeEnemyFly();
+            hero.drawFlying();
+        }
+        window.setInterval(_letFly, 20);
+    },
+    /****
      * 控制游戏流程的方法
      * **/
     gamingProgress: function() {
-        // var plane = new Plane(parameter.enemy_small_speed, 0, 0, parameter.enemy_small_blood);
-        // plane.iniProtoPlane(parameter.enemyImg_small, parameter.enemy_small_width, parameter.enemy_small_height, parameter.enemy_small_bombingImg, parameter.enemy_small_bombingImg_sideLen);
-        // plane.drawFlying();
-        // plane.judegCondition();
-
-        // var plane = new Plane(parameter.enemy_big_speed, 100, 0, parameter.enemy_big_blood);
-        // plane.iniProtoPlane(parameter.enemyImg_big, parameter.enemy_big_width, parameter.enemy_big_height, parameter.enemy_big_bombingImg, parameter.enemy_big_bombingImg_sideLen);
-        // plane.drawFlying();
-        // plane.judegCondition();
-
         var enemeies = new EnemyPlane();
         enemeies.makeEnemy();
-        enemeies.makeEnemyFly();
+        enemeies.removeEnemy();
+
+        var hero = new HeroPlane();
+        hero.iniHeroPlane();
+        hero.moveHeroPlane();
+
+        this.letFly(enemeies, hero);
     }
+    
 }
