@@ -49,6 +49,7 @@ var parameter = {
     context: null,
     gameover: false,
     score: 0,
+    score_panel: document.querySelector("#score-panel"),
 
     initialData: function() {
         //初始化图片

@@ -101,3 +101,16 @@ div#gameover span {
     background-color: black;
     color: white;
 }
+
+/* 分数看板 */
+span#score-panel {
+    display: none;
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    padding: 0.1em 0.5em;
+    border: 2px red solid;
+    border-radius: 5px;
+    font-weight: bold;
+    color: red;
+}

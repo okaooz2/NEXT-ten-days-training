@@ -53,6 +53,7 @@ EnemyPlane.prototype = {
                             parameter.score += parameter.enemy_big_value;
                         }
                     }
+                    parameter.score_panel.innerHTML = parameter.score;
                     //删除一项
                     that.enemy_planes.splice(i, 1);
                 }

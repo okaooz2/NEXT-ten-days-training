@@ -36,6 +36,8 @@ GlobalProgress.prototype = {
             that.initialData();
             that.gamingProgress();
             document.body.style.backgroundImage = "url(" + parameter.gamingBackgroundImg_2_src + ")";
+            parameter.score_panel.style.display = "block";
+            parameter.score_panel.innerHTML = parameter.score;
         };
         //绑定欢迎页面设置按钮
         welcome_btn_setting.onclick = function() {
@@ -63,6 +65,7 @@ GlobalProgress.prototype = {
             gameover.style.display = "none";
             welcom_menu.style.display = "block";
             document.body.style.backgroundImage = "url(" + parameter.gamingBackgroundImg_1_src + ")";
+            parameter.score_panel.style.display = "none";
         };
     },
     /****
