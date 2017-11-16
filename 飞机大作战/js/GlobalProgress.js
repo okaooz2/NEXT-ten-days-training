@@ -72,8 +72,7 @@ GlobalProgress.prototype = {
      * 初始化数据的方法
      * **/
     initialData: function() {
-        parameter.gameover = false;
-        parameter.score = 0;
+        parameter.resizeDifficulty();
     },
     /****
      * 让所有飞行物飞行的方法
@@ -113,6 +112,21 @@ GlobalProgress.prototype = {
         hero = null;
     },
     /****
+     * 逐渐增加难度
+     * **/
+    increasinDifficulty: function() {
+        function _increasinDifficulty() {
+            // parameter.enemy_maxNum += 0.5;
+            if(parameter.enemy_maxNum < 7) {
+                parameter.enemy_maxNum += 0.5;
+            }
+            parameter.enemy_small_speed += 0.2;
+            parameter.enemy_big_speed += 0.15;
+        }
+        //每7秒增加一次难度
+        this.global_interval.push(window.setInterval(_increasinDifficulty, 5000));
+    },
+    /****
      * 控制游戏流程的方法
      * **/
     gamingProgress: function() {
@@ -129,6 +143,7 @@ GlobalProgress.prototype = {
         hero.updataCondition(enemeies);
 
         this.letFly(enemeies, hero);
+        this.increasinDifficulty();
 
         var that = this;
         function _gameover() {
