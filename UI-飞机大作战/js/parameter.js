@@ -40,8 +40,8 @@ var parameter = {
     enemy_maxNum: 5,
     //子弹的参数
     bulletImg: new Image(),
-    bulletImg_src: "../飞机游戏素材//子弹/子弹3.png",
-    bulletImg_width: 10,
+    bulletImg_src: "../飞机游戏素材/子弹/子弹3.png",
+    bulletImg_width: 15,
     bulletImg_height: 30,
     bullet_speen: -10,
 
