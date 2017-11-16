@@ -22,7 +22,7 @@ var parameter = {
     enemy_small_bombingImg_src: "../飞机游戏素材/爆炸/敌机爆炸1.png",
     enemy_small_bombingImg: new Image(),
     enemy_small_bombingImg_sideLen: 30,
-    enemy_small_speed: 2.5,
+    enemy_small_speed: null,
     enemy_small_blood: 1,
     enemy_small_value: 100,
     //大敌人飞机的参数
@@ -33,11 +33,11 @@ var parameter = {
     enemy_big_bombingImg_src: "../飞机游戏素材/爆炸/敌机爆炸2.png",
     enemy_big_bombingImg: new Image(),
     enemy_big_bombingImg_sideLen: 50,
-    enemy_big_speed: 1.5,
+    enemy_big_speed: null,
     enemy_big_blood: 4,
     enemy_big_value: 500,
     //敌人飞机数量
-    enemy_maxNum: 4,
+    enemy_maxNum: null,
     //子弹的参数
     bulletImg: new Image(),
     bulletImg_src: "../飞机游戏素材/子弹/子弹3.png",
@@ -47,8 +47,8 @@ var parameter = {
 
     canvas: null,
     context: null,
-    gameover: false,
-    score: 0,
+    gameover: null,
+    score: null,
     score_panel: document.querySelector("#score-panel"),
 
     initialData: function() {
@@ -75,7 +75,7 @@ var parameter = {
     resizeDifficulty: function() {
         this.gameover = false;
         this.score = 0;
-        this.enemy_maxNum = 4;
+        this.enemy_maxNum = 3;
         this.enemy_small_speed = 2.5;
         this.enemy_big_speed = 1.5;
     }

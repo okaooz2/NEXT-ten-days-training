@@ -91,7 +91,7 @@ HeroPlane.prototype.makeBullte = function() {
         bullet.iniProto(parameter.bulletImg, parameter.bulletImg_width, parameter.bulletImg_height);
         that.bullets.push(bullet);
     }
-    this.hero_interval.push(window.setInterval(_makeBullte, 100));
+    this.hero_interval.push(window.setInterval(_makeBullte, 50));
 }
 //移除失效子弹
 HeroPlane.prototype.removeBullte = function() {

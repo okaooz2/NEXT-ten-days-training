@@ -124,9 +124,9 @@ GlobalProgress.prototype = {
                 parameter.enemy_maxNum +=  0.1;
             }
             parameter.enemy_small_speed += 0.15;
-            parameter.enemy_big_speed += 0.075;
+            parameter.enemy_big_speed += 0.09;
         }
-        //每7秒增加一次难度
+        //每5秒增加一次难度
         this.global_interval.push(window.setInterval(_increasinDifficulty, 5000));
     },
     /****

@@ -31,7 +31,7 @@ EnemyPlane.prototype = {
                 that.enemy_planes[length].iniProtoPlane(parameter.enemyImg_big, parameter.enemy_big_width, parameter.enemy_big_height, parameter.enemy_big_bombingImg, parameter.enemy_big_bombingImg_sideLen);
             }
         }
-        this.enemy_interval.push(window.setInterval(_makeEnemy, 100));
+        this.enemy_interval.push(window.setInterval(_makeEnemy, 125));
     },
    //让所有敌机动态飞行
     makeEnemyFly: function() {
