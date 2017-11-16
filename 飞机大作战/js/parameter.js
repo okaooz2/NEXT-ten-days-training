@@ -37,7 +37,7 @@ var parameter = {
     enemy_big_blood: 4,
     enemy_big_value: 500,
     //敌人飞机数量
-    enemy_maxNum: 2,
+    enemy_maxNum: 4,
     //子弹的参数
     bulletImg: new Image(),
     bulletImg_src: "../飞机游戏素材/子弹/子弹3.png",
@@ -75,7 +75,7 @@ var parameter = {
     resizeDifficulty: function() {
         this.gameover = false;
         this.score = 0;
-        this.enemy_maxNum = 2;
+        this.enemy_maxNum = 4;
         this.enemy_small_speed = 2.5;
         this.enemy_big_speed = 1.5;
     }

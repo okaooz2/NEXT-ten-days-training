@@ -57,7 +57,7 @@ HeroPlane.prototype.moveHeroPlane = function() {
         is_touching = false;
     }
     parameter.canvas.ontouchmove = function(event){
-        // event.preventDefault();
+        event.preventDefault();
         if(is_touching) {
             var position_x = event.touches[0].clientX - that.image_width/2;
             var position_y = event.touches[0].clientY - that.image_height/2;

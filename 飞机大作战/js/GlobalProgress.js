@@ -117,11 +117,14 @@ GlobalProgress.prototype = {
     increasinDifficulty: function() {
         function _increasinDifficulty() {
             // parameter.enemy_maxNum += 0.5;
-            if(parameter.enemy_maxNum < 7) {
+            if(parameter.enemy_maxNum < 8) {
                 parameter.enemy_maxNum += 0.5;
             }
-            parameter.enemy_small_speed += 0.2;
-            parameter.enemy_big_speed += 0.15;
+            else {
+                parameter.enemy_maxNum +=  0.1;
+            }
+            parameter.enemy_small_speed += 0.15;
+            parameter.enemy_big_speed += 0.075;
         }
         //每7秒增加一次难度
         this.global_interval.push(window.setInterval(_increasinDifficulty, 5000));
