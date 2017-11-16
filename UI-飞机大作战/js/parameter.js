@@ -24,7 +24,7 @@ var parameter = {
     enemy_small_bombingImg_sideLen: 30,
     enemy_small_speed: 3,
     enemy_small_blood: 2,
-    enemy_small_value: 100,
+    enemy_small_value: 10,
     //大敌人飞机的参数
     enemyImg_big_src: "../飞机游戏素材/飞机/飞机5.png",
     enemyImg_big: new Image(),
@@ -35,7 +35,7 @@ var parameter = {
     enemy_big_bombingImg_sideLen: 50,
     enemy_big_speed: 2,
     enemy_big_blood: 6,
-    enemy_big_value: 500,
+    enemy_big_value: 50,
     //敌人飞机数量
     enemy_maxNum: 5,
     //子弹的参数
