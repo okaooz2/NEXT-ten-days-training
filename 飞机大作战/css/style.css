@@ -12,7 +12,8 @@ body {
     height: 100vh;
     background-image: url("../image/背景2.jpg");
     background-size: cover;
-    /* overflow: hidden; */
+    height: 100vh;
+    overflow: hidden;
 }
 
 /* 欢迎界面设置 */
