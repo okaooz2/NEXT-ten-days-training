@@ -32,17 +32,17 @@ EnemyPlane.prototype = {
             }
         }
         this.enemy_interval.push(window.setInterval(_makeEnemy, 100));
-   },
+    },
    //让所有敌机动态飞行
-   makeEnemyFly: function() {
+    makeEnemyFly: function() {
         for(var i=0, len=this.enemy_planes.length; i<len; ++i) {
             this.enemy_planes[i].drawFlying();
             this.enemy_planes[i].judegCondition();
         }
-   },
-   //自动删除死亡的敌机（出界 + 被击杀）
-   removeEnemy: function() {
-       var that = this;
+    },
+    //自动删除死亡的敌机（出界 + 被击杀）
+    removeEnemy: function() {
+        var that = this;
         function _removeEnemy() {
             for(var i=0, len=that.enemy_planes.length; i<len; len=that.enemy_planes.length) {
                 if(!that.enemy_planes[i].is_live) {
@@ -66,5 +66,11 @@ EnemyPlane.prototype = {
         }
         //此处定时器决定爆炸画面持续时间
         this.enemy_interval.push(window.setInterval(_removeEnemy, 200));
-   }
+    },
+    //删除类中残余的引用
+    end: function() {
+        for(var i=0, len=this.enemy_interval.length; i<len; ++i) {
+            window.clearInterval(this.enemy_interval[i]);
+        }
+    }
 }

@@ -97,16 +97,12 @@ GlobalProgress.prototype = {
         var bombing_y = hero.y + 0.5*(hero.image_height - hero.bombingImg_sideLen);
         parameter.context.drawImage(hero.bombingImg, bombing_x, bombing_y, hero.bombingImg_sideLen, hero.bombingImg_sideLen);
 
-        //清除所有定时器
+        //清除所有引用
         for(var i=0, len=this.global_interval.length; i<len; ++i) {
             window.clearInterval(this.global_interval[i]);
         }
-        for(var i=0, len=enemeies.enemy_interval.length; i<len; ++i) {
-            window.clearInterval(enemeies.enemy_interval[i]);
-        }
-        for(var i=0, len=hero.hero_interval.length; i<len; ++i) {
-            window.clearInterval(hero.hero_interval[i]);
-        }
+        enemeies.end();
+        hero.end();
 
         //显示gameover界面
         var gameover_menu = document.querySelector("div#gameover");

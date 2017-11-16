@@ -44,22 +44,20 @@ HeroPlane.prototype.moveHeroPlane = function() {
     var is_touching = false;
     var x_edge = parameter.canvas.width - this.image_width;
     var y_edge = parameter.canvas.height - this.image_height;
-    //回调函数加上名字便于移除
-    parameter.canvas.addEventListener("touchstart", function moving() {
+
+    parameter.canvas.ontouchstart = function(event) {
         var touch_x = event.touches[0].clientX;
         var touch_y = event.touches[0].clientY;
         if(touch_x > that.x && touch_y > that.y &&
         touch_x - that.x < that.image_width && touch_y - that.y < that.image_height) {
             is_touching = true;
         }
-    }, false);
-    //回调函数加上名字便于移除
-    parameter.canvas.addEventListener("touchend", function moving() {
+    };
+    parameter.canvas.ontouchend = function(event) {
         is_touching = false;
-    }, false);
-    //回调函数加上名字便于移除
-    parameter.canvas.addEventListener("touchmove", function moving(event){
-        event.preventDefault();
+    }
+    parameter.canvas.ontouchmove = function(event){
+        // event.preventDefault();
         if(is_touching) {
             var position_x = event.touches[0].clientX - that.image_width/2;
             var position_y = event.touches[0].clientY - that.image_height/2;
@@ -83,7 +81,7 @@ HeroPlane.prototype.moveHeroPlane = function() {
                 that.y = position_y;
             }
         }
-    }, false);
+    }
 }
 //制颗子弹
 HeroPlane.prototype.makeBullte = function() {
@@ -124,5 +122,12 @@ HeroPlane.prototype.hitOther = function(enemise) {
 HeroPlane.prototype.letBulletFly = function() {
     for(var i=0, len=this.bullets.length; i<len; ++i) {
         this.bullets[i].drawFlying();
+    }
+}
+//删除类中残余的引用
+HeroPlane.prototype.end = function() {
+    //清除定时器
+    for(var i=0, len=this.hero_interval.length; i<len; ++i) {
+        window.clearInterval(this.hero_interval[i]);
     }
 }

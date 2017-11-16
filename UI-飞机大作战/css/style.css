@@ -91,6 +91,9 @@ div#setting select {
 }
 
 /* gameover界面 */
+div#gameover h2 {
+    color: red;
+}
 div#gameover h4 {
     margin-bottom: 1em;
     font-weight: bold;
